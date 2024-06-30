@@ -14,12 +14,13 @@ config({path:"./Data/variable.env"});
 
 DBConnect();
     
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
+
 app.use("/api/v1/users",UserRouter);
 app.use("/api/v1/tasks",TaskRouter);
 app.use(errorMiddleware);
-app.use(cors());
 
 
 
