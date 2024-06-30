@@ -19,11 +19,7 @@ app.use(cookieParser());
 app.use("/api/v1/users",UserRouter);
 app.use("/api/v1/tasks",TaskRouter);
 app.use(errorMiddleware);
-app.use(cors({
-    origin :[process.env.FRONTEND_URL],
-    methods :["GET","PUT","DELETE","POST"],
-    credentials: true,
-}));
+app.use(cors());
 
 
 
