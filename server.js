@@ -15,7 +15,7 @@ config({path:"./Data/variable.env"});
 DBConnect();
     
 app.use(cors({
-    origin :[process.env.FRONTEND_URL],
+    origin :'process.env.FRONTEND_URL',
     methods :["GET","PUT","DELETE","POST"],
     credentials: true,
 }));
