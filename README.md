@@ -122,15 +122,13 @@ Listify supports full CRUD operations for managing tasks:
 
 ## Authentication
  ### Role of JWT tokens and Cookies
-  Json Web Tokens(JWT) is used for transmitting data between parties as JSON object.In Listify,JWTs are used for authentication, providing a stateless way to authorize API requests based on token's content.
+  JSON Web Tokens(JWT) is used for transmitting data between parties as JSON object.In Listify, JWTs are used for authentication, providing a stateless way to authorize API requests based on token's content.
 
   Cookies are small pieces of data stored in clients browser.In Listify,cookies are used for session management. Upon successful login, a session is set in client's browser, containing a session identifier that allows the server to identify the user for subsequent requests.
 
   This dual approach balances security and usability, making Listify's authentication robust and user-friendly.
 
-
+ ---
 Thank you for using Listify! If you have any questions or feedback, feel free to reach out.
-
----
 
 **Happy Tasking!**
