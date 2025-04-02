@@ -22,6 +22,15 @@ const schema=new mongoose.Schema({
         type:Date,
         default: Date.now,
     },
+    deadline:{
+        type:Date,
+        default: Date.now,
+    },
+    time_tag:{
+        type:String,
+        enum:["morning","evening","night"],
+        required:true,
+    },
 });
 const Tasks = mongoose.model("task",schema);
 

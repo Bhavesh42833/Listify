@@ -2,6 +2,7 @@ import Users from "../models/users.js";
 import bcrypt from "bcrypt";
 import { SendCookie } from "../utilities/features.js";
 import ErrorHandler from "../middlewares/error.js";
+import cloudinary from "cloudinary";
 
 
 export const getUserProfile =async (req,res)=>{
@@ -44,16 +45,22 @@ export const login=async(req,res,next)=>{
 
 
 
-export const RegisterUser= async(req,res)=>{
+export const RegisterUser= async(req,res,next)=>{
   try {
-  const {name,email,password}=req.body;
+  const {name,email,password,avatar}=req.body;
+   const mycloud=await cloudinary.v2.uploader.upload(avatar,{
+    folders:"ToDoUser"
+   });
   let User= await Users.findOne({email});
 
   if(User)return next(new ErrorHandler("User already Registered",400));
 
   const HashedPassword= await bcrypt.hash(password,10);
    
-  const user=await Users.create({name,email,password:HashedPassword })
+  const user=await Users.create({name,email,password:HashedPassword,avatar:{
+    public_id:mycloud.public_id,
+    url:mycloud.secure_url
+  } });
    
   SendCookie(res,user,"Registered Succesfully",201);
   } catch (error) {

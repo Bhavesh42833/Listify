@@ -7,15 +7,21 @@ import {DBConnect} from "./Data/database.js";
 import {config} from "dotenv";
 import { errorMiddleware } from "./middlewares/error.js";
 import cors from "cors";
-
+import cloudinary from "cloudinary";
 const app = express();
 
 config({path:"./Data/variable.env"});
 
 DBConnect();
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
+});
     
 app.use(cors({
-    origin : process.env.FRONTEND_URL,
+    origin : "https://listifyy43.netlify.app/",
     methods :["GET","PUT","DELETE","POST"],
     credentials: true,
 }));

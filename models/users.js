@@ -15,6 +15,10 @@ const schema=new mongoose.Schema({
         select :false,
         required:true,
     },
+    avatar:
+    {  public_id: String,
+       url:String,
+    },
     createdAt: {
         type:Date,
         default: Date.now,
