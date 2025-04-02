@@ -1,5 +1,5 @@
 import Users from "../models/users.js";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import { SendCookie } from "../utilities/features.js";
 import ErrorHandler from "../middlewares/error.js";
 import cloudinary from "cloudinary";
