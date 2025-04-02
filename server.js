@@ -21,7 +21,7 @@ cloudinary.config({
 });
     
 app.use(cors({
-    origin : "https://listifyy43.netlify.app/",
+    origin : "https://listifyy43.netlify.app",
     methods :["GET","PUT","DELETE","POST"],
     credentials: true,
 }));
